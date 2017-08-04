@@ -20,12 +20,12 @@
                 <td>'.$row['id'].'</td>
                 <td>'.$row['name'].'</td>
                 <td>
-                    <button type="button" onclick="GetCategoryDetails('.$row['id'].')" class="btn btn-primary" data-toggle="modal" id="edit"
+                    <button type="button" value="'.$row['id'].'" class="btn btn-primary edit" data-toggle="modal" 
                             data-target="#exampleModal" data-whatever="@mdo">Edit
                     </button>
                 </td>
                 <td>
-                    <button onclick="DeleteCategory('.$row['id'].')" class="btn btn-danger" id="delete">Delete</button>
+                    <button value="'.$row['id'].'" class="btn btn-danger delete">Delete</button>
                 </td>
             </tr>
             ';
@@ -38,6 +38,51 @@
             </tr>
         ';
     }
-    $data .='</table>';
+    $data .="</table>
+            <script>
+                $(document).ready(function () {
+                    $('.edit').click(function () {   
+                        var id = $(this).val();                     
+                        $('.modal-edit-category').modal('show');    
+                        $('#edit-btn').click(function() {
+                            /*editRecordCategory(id); */
+                            alert(id);
+                        });
+                    });                 
+                    $('.delete').click(function () {    
+                        var id = $(this).val();
+                        deleteRecordCategory(id);
+                    });
+                    function readRecordCategory() {
+                        $.get('style/js/ajax/category/readRecords.php', {}, function (data, status) {
+                            $('.records-content').html(data);
+                        })
+                    };
+                    function deleteRecordCategory(id) {                   
+                        var conf = confirm('Do you want delete?');
+                        if(conf === true){
+                           $.post('style/js/ajax/category/deleteRecord.php',
+                               {
+                                   id:id
+                               },function (data,status) {
+                                   readRecordCategory();
+                               }
+                           );
+                       }               
+                    };
+                    function editRecordCategory(id) {
+                        var name = $('#edit-name').val();
+                        $.post('style/js/ajax/category/editRecord.php',
+                            {
+                                id: id,
+                                name:name
+                            }, function (data, status) {
+                                readRecordCategory();
+                            }
+                        );                     
+                    };
+               
+                });
+            </script>";
     echo $data;
 ?>

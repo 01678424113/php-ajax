@@ -46,26 +46,7 @@
 <!--Table-->
 <div class="container mt-5">
     <div class="records-content table-hover table-bordered">
-        <table style="width: 1000px">
-            <tr style="background: #eae6e6">
-                <td><strong>ID</strong></td>
-                <td><strong>Category</strong></td>
-                <td><strong>Edit</strong></td>
-                <td><strong>Delete</strong></td>
-            </tr>
-            <tr style="height: 50px;">
-                <td>1</td>
-                <td>Hello</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" id="edit"
-                            data-target="#exampleModal" data-whatever="@mdo">Edit
-                    </button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" id="delete">Delete</button>
-                </td>
-            </tr>
-        </table>
+
     </div>
     <button type="button" class="btn btn-success mt-5" data-toggle="modal" id="add" data-target="#exampleModal"
             data-whatever="@mdo">Add
@@ -73,7 +54,7 @@
 </div>
 
 <!--Modal Edit-->
-<div class="modal edit fade">
+<div class="modal modal-edit-category fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,13 +68,13 @@
                     <table>
                         <tr>
                             <td><label><strong>New name :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" placeholder="New name" id="edit-name"></td>
                         </tr>
                     </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -101,7 +82,7 @@
 </div>
 <!--End modal edit-->
 <!--Modal Add-->
-<div class="modal add fade">
+<div class="modal modal-add-category fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,13 +112,9 @@
 <script>
     $(document).ready(function () {
         $('#add').click(function () {
-            $('.modal.add').modal('show');
+            $('.modal-add-category').modal('show');
         });
-        $('#edit').click(function () {
-            $('.modal.edit').modal('show');
-        })
     });
-
 </script>
 
 
