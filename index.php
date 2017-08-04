@@ -115,13 +115,13 @@
                     <table>
                         <tr>
                             <td><label><strong>Name :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" value="" name="name" id="name"></td>
                         </tr>
                     </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add new</button>
+                <button type="button" id="add-category" class="btn btn-primary">Add new</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
