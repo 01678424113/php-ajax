@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['id']) && isset($_POST['name']))
+if(isset($_POST['id']) && isset($_POST['id'])!='' && isset($_POST['name']) )
 {
     require "../../../../db_connection.php";
     $id = $_POST['id'];

@@ -45,8 +45,9 @@
                         var id = $(this).val();                     
                         $('.modal-edit-category').modal('show');    
                         $('#edit-btn').click(function() {
-                            /*editRecordCategory(id); */
-                            alert(id);
+                            editRecordCategory(id);
+                            // Gán id rỗng để tránh id bị lưu sau nhiều lần click
+                            id = '';
                         });
                     });                 
                     $('.delete').click(function () {    
