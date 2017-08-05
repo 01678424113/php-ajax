@@ -18,7 +18,7 @@
             $data .= '
             <tr style="height: 50px;">
                 <td>'.$row['id'].'</td>
-                <td>'.$row['name'].'</td>
+                <td class="column-name">'.$row['name'].'</td>
                 <td>
                     <button type="button" value="'.$row['id'].'" class="btn btn-primary edit" data-toggle="modal" 
                             data-target="#exampleModal" data-whatever="@mdo">Edit
@@ -42,12 +42,12 @@
             <script>
                 $(document).ready(function () {
                     $('.edit').click(function () {   
-                        var id = $(this).val();                     
-                        $('.modal-edit-category').modal('show');    
-                        $('#edit-btn').click(function() {
+                        var id = $(this).val();  
+                        var name = $('#edit-name').val( $(this).closest('tr').find('.column-name').text());                      
+                        $('.modal-edit-category').modal('show');                      
+                        $('#edit-btn').off().click(function() {
                             editRecordCategory(id);
-                            // Gán id rỗng để tránh id bị lưu sau nhiều lần click                        
-                            id = '';
+                            // Gán id rỗng để tránh id bị lưu sau nhiều lần click                                                 
                         });
                     });                 
                     $('.delete').click(function () {    
@@ -77,10 +77,11 @@
                             {
                                 id: id,
                                 name:name
-                            }, function (data, status) {
+                            }, function (data, status) {                                 
                                 readRecordCategory();
                             }
-                        );                     
+                        );
+                        $('.modal-edit-category').modal('hide'); 
                     };
                
                 });

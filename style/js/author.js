@@ -31,37 +31,8 @@ $(document).ready(function () {
                 $('#address').val("");
             }
         );
+        $('.modal-add-author').modal('hide');
     }
-    function deleteRecordAuthor(id) {
-        var conf = confirm("Do you want delete?");
-        if (conf === true) {
-            $.post("style/js/ajax/author/deleteRecord.php",
-                {
-                    id: id
-                }, function (data, status) {
-                    readRecordAuthor();
-                }
-            );
-        }
-    }
-    function editRecordAuthor(id) {
-        var full_name = $('#edit-full-name').val();
-        var email = $('#edit-email').val();
-        var phone = $('#edit-phone').val();
-        var birthday = $('#edit-birthday').val();
-        var address = $('#edit-address').val();
-        $.post('style/js/ajax/author/editRecord.php',
-            {
-                id: id,
-                full_name:full_name,
-                email:email,
-                phone:phone,
-                birthday:birthday,
-                address:address
-            }, function (data, status) {
-                readRecordAuthor();
-            }
-        );
-    };
+
     /*---------------------------------------End author-------------------------------------------------------*/
 });

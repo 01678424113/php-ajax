@@ -20,11 +20,11 @@ if (mysqli_num_rows($result) > 0) {
         $data .= '
             <tr style="height: 50px;">
                 <td>' . $row['id'] . '</td>
-                <td>' . $row['full_name'] . '</td>
-                <td>' . $row['email'] . '</td>
-                <td>' . $row['phone'] . '</td>
-                <td>' . $row['birthday'] . '</td>
-                <td>' . $row['address'] . '</td>
+                <td class="column-full-name">' . $row['full_name'] . '</td>
+                <td class="column-email">' . $row['email'] . '</td>
+                <td class="column-phone">' . $row['phone'] . '</td>
+                <td class="column-birthday">' . $row['birthday'] . '</td>
+                <td class="column-address">' . $row['address'] . '</td>
                 <td>
                     <button type="button" value="' . $row['id'] . '" class="btn btn-primary edit" data-toggle="modal" 
                             data-target="#exampleModal" data-whatever="@mdo">Edit
@@ -47,12 +47,16 @@ $data .= "</table>
         <script>
             $(document).ready(function() {
                  $('.edit').click(function () {   
-                    var id = $(this).val();                     
-                    $('.modal-edit-author').modal('show');    
-                    $('#edit-btn').click(function() {               
-                        editRecordAuthor(id);
-                        // Gán id rỗng để tránh id bị lưu sau nhiều lần click                        
-                        id = '';
+                     var id = $(this).val();
+                     var full_name = $('#edit-full-name').val( $(this).closest('tr').find('.column-full-name').text());
+                     var email = $('#edit-email').val( $(this).closest('tr').find('.column-email').text());
+                     var phone = $('#edit-phone').val( $(this).closest('tr').find('.column-phone').text());
+                     var birthday = $('#edit-birthday').val( $(this).closest('tr').find('.column-birthday').text());
+                     var address = $('#edit-address').val( $(this).closest('tr').find('.column-address').text());
+                    $('.modal-edit-author').modal('show');                     
+                    $('#edit-btn').off().click(function() {     
+                        editRecordAuthor(id);                      
+                        // Gán id rỗng để tránh id bị lưu sau nhiều lần click                                          
                     });
                 });
                  function readRecordAuthor() {
@@ -94,7 +98,7 @@ $data .= "</table>
                             readRecordAuthor();
                         }
                     );
-                    
+                    $('.modal-edit-author').modal('hide');
                  }
             });
         </script>
