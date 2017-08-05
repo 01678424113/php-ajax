@@ -46,7 +46,7 @@
                         $('.modal-edit-category').modal('show');    
                         $('#edit-btn').click(function() {
                             editRecordCategory(id);
-                            // Gán id rỗng để tránh id bị lưu sau nhiều lần click
+                            // Gán id rỗng để tránh id bị lưu sau nhiều lần click                        
                             id = '';
                         });
                     });                 

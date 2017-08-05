@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script
-        src="http://code.jquery.com/jquery-3.2.1.js"
-        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-        crossorigin="anonymous"></script>
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/css/style.css">
+    <script src="style/js/author.js"></script>
 </head>
 <body>
 <!--NAV-->
@@ -44,39 +45,16 @@
 </nav>
 <!--Table-->
 <div class="container mt-5">
-    <div class="table-hover">
-        <table style="width: 1000px">
-            <tr style="background: #eae6e6">
-                <td><strong>ID</strong></td>
-                <td><strong>Full name</strong></td>
-                <td><strong>Email</strong></td>
-                <td><strong>Phone</strong></td>
-                <td><strong>Birthday</strong></td>
-                <td><strong>Address</strong></td>
-                <td><strong>Edit</strong></td>
-                <td><strong>Delete</strong></td>
-            </tr>
-            <tr style="height: 50px;">
-                <td>1</td>
-                <td>Nguyen Lam</td>
-                <td>01678424113@gmail.com</td>
-                <td>01678424113</td>
-                <td>6-6-1996</td>
-                <td>Ha Noi</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" id="edit" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" id="delete">Delete</button>
-                </td>
-            </tr>
-        </table>
+    <div class="records-content table-hover table-bordered">
+
     </div>
-    <button type="button" class="btn btn-success mt-5" data-toggle="modal" id="add" data-target="#exampleModal" data-whatever="@mdo">Add</button>
+    <button type="button" class="btn btn-success mt-5" data-toggle="modal" id="add" data-target="#exampleModal"
+            data-whatever="@mdo">Add
+    </button>
 </div>
 
 <!--Modal Edit-->
-<div class="modal edit fade">
+<div class="modal modal-edit-author fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -90,29 +68,29 @@
                     <table>
                         <tr>
                             <td><label><strong>Full name :</strong></label></td>
-                            <td><input type="text" value="Nguyen Lma"></td>
+                            <td><input type="text" id="edit-full-name" value=""></td>
                         </tr>
                         <tr>
                             <td><label><strong>Email :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" id="edit-email" value=""></td>
                         </tr>
                         <tr>
                             <td><label><strong>Phone :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" id="edit-phone" value=""></td>
                         </tr>
                         <tr>
                             <td><label><strong>Birthday :</strong></label></td>
-                            <td><input type="text" value="6-6-1996"></td>
+                            <td><input type="text" id="edit-birthday" value=""></td>
                         </tr>
                         <tr>
                             <td><label><strong>Address :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" id="edit-address" value=""></td>
                         </tr>
                     </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" id="edit-btn" class="btn btn-primary">Edit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -120,7 +98,7 @@
 </div>
 <!--End modal edit-->
 <!--Modal Add-->
-<div class="modal add fade">
+<div class="modal modal-add-author fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -131,22 +109,32 @@
             </div>
             <div class="modal-body">
                 <form action="">
-                    <form action="">
-                        <label><strong>Full name :</strong></label>
-                        <input type="text" value=""><br>
-                        <label><strong>Email :</strong></label>
-                        <input type="text" value=""><br>
-                        <label><strong>Phone :</strong></label>
-                        <input type="text" value=""><br>
-                        <label><strong>Birthday :</strong></label>
-                        <input type="text" value="6-6-1996"><br>
-                        <label><strong>Address :</strong></label>
-                        <input type="text" value=""><br>
-                    </form>
+                    <table>
+                        <tr>
+                            <td><label><strong>Full name :</strong></label></td>
+                            <td><input type="text" name="full_name" id="full-name" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><label><strong>Email :</strong></label></td>
+                            <td><input type="text" name="email" id="email" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><label><strong>Phone :</strong></label></td>
+                            <td><input type="text" name="phone" id="phone" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><label><strong>Birthday :</strong></label></td>
+                            <td><input type="text" name="birthday" id="birthday" value="6-6-1996"></td>
+                        </tr>
+                        <tr>
+                            <td><label><strong>Address :</strong></label></td>
+                            <td><input type="text" name="address" id="address" value=""></td>
+                        </tr>
+                    </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add new</button>
+                <button type="button" id="add-author" class="btn btn-primary">Add new</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -156,11 +144,8 @@
 <script>
     $(document).ready(function () {
         $('#add').click(function () {
-            $('.modal.add').modal('show');
+            $('.modal-add-author').modal('show');
         });
-        $('#edit').click(function () {
-            $('.modal.edit').modal('show');
-        })
     });
 
 </script>

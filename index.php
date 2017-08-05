@@ -13,7 +13,7 @@
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/css/style.css">
-    <script src="style/js/script.js"></script>
+    <script src="style/js/category.js"></script>
 </head>
 <body>
 <!--NAV-->
