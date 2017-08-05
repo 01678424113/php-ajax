@@ -77,7 +77,8 @@
                             {
                                 id: id,
                                 name:name
-                            }, function (data, status) {                                 
+                            }, function (data, status) {   
+                                alert(data);
                                 readRecordCategory();
                             }
                         );

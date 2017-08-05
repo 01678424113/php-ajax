@@ -22,8 +22,9 @@ $(document).ready(function () {
                 phone:phone,
                 birthday:birthday,
                 address:address
-            },function () {
+            },function (data,status) {
                 readRecordAuthor();
+                alert(data);
                 $('#full-name').val("");
                 $('#email').val("");
                 $('#phone').val("");

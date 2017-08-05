@@ -22,6 +22,7 @@ $(document).ready(function () {
             function (data, status) {
                 $('.modal.add').modal('hide');
                 readRecordCategory();
+                alert(data);
                 $('#name').val("");
             }
         );

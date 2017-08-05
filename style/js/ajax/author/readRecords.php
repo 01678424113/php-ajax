@@ -95,6 +95,7 @@ $data .= "</table>
                             birthday:birthday,
                             address:address
                         },function (data, status) {
+                            alert(data);
                             readRecordAuthor();
                         }
                     );
