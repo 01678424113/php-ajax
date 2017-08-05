@@ -13,6 +13,7 @@
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/css/style.css">
+    <script src="style/js/book.js"></script>
 </head>
 <body>
 <!--NAV-->
@@ -44,37 +45,14 @@
 </nav>
 <!--Table-->
 <div class="container mt-5">
-    <div class="table-hover">
-        <table style="width: 1000px">
-            <tr style="background: #eae6e6">
-                <td><strong>ID</strong></td>
-                <td><strong>Name</strong></td>
-                <td><strong>Id Category</strong></td>
-                <td><strong>Id Author</strong></td>
-                <td><strong>Published year</strong></td>
-                <td><strong>Edit</strong></td>
-                <td><strong>Delete</strong></td>
-            </tr>
-            <tr style="height: 50px;">
-                <td>1</td>
-                <td>Clean code</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1996</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" id="edit" data-target="#exampleModal" data-whatever="@mdo">Edit</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" id="delete">Delete</button>
-                </td>
-            </tr>
-        </table>
+    <div class="records-content table-hover table-bordered">
+
     </div>
     <button type="button" class="btn btn-success mt-5" data-toggle="modal" id="add" data-target="#exampleModal" data-whatever="@mdo">Add</button>
 </div>
 
 <!--Modal Edit-->
-<div class="modal edit fade">
+<div class="modal modal-edit-book fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -88,25 +66,25 @@
                     <table>
                         <tr>
                             <td><label><strong>Name :</strong></label></td>
-                            <td><input type="text" value="Nguyen Lma" disabled></td>
+                            <td><input type="text" name="name" id="edit-name" value="" disabled></td>
                         </tr>
                         <tr>
                             <td><label><strong>Category :</strong></label></td>
-                            <td><input type="text" value="Hello"></td>
+                            <td><input type="text" name="id_category" id="edit-id-category"  value=""></td>
                         </tr>
                         <tr>
                             <td><label><strong>Author :</strong></label></td>
-                            <td><input type="text" value="Hello" disabled></td>
+                            <td><input type="text" name="id_author" id="edit-id-author" value="" disabled></td>
                         </tr>
                         <tr>
                             <td><label><strong>Published year :</strong></label></td>
-                            <td><input type="text" value="6-6-1996"></td>
+                            <td><input type="text" name="published_year" id="edit-published-year" value=""></td>
                         </tr>
                     </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -114,7 +92,7 @@
 </div>
 <!--End modal edit-->
 <!--Modal Add-->
-<div class="modal add fade">
+<div class="modal modal-add-book fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -125,28 +103,28 @@
             </div>
             <div class="modal-body">
                 <form action="">
-                    <table>
-                        <tr>
-                            <td><label><strong>Name :</strong></label></td>
-                            <td><input type="text" value="" ></td>
-                        </tr>
-                        <tr>
-                            <td><label><strong>Category :</strong></label></td>
-                            <td><input type="text" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><label><strong>Author :</strong></label></td>
-                            <td><input type="text" value="" ></td>
-                        </tr>
-                        <tr>
-                            <td><label><strong>Published year :</strong></label></td>
-                            <td><input type="text" value=""></td>
-                        </tr>
-                    </table>
+                <table>
+                    <tr>
+                        <td><label><strong>Name :</strong></label></td>
+                        <td><input type="text" name="name" id="name" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td><label><strong>Category :</strong></label></td>
+                        <td><input type="text" name="id_category" id="id-category"  value=""></td>
+                    </tr>
+                    <tr>
+                        <td><label><strong>Author :</strong></label></td>
+                        <td><input type="text" name="id_author" id="id-author" value="" ></td>
+                    </tr>
+                    <tr>
+                        <td><label><strong>Published year :</strong></label></td>
+                        <td><input type="text" name="published_year" id="published-year" value=""></td>
+                    </tr>
+                </table>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add new</button>
+                <button type="button" class="btn btn-primary" id="add-book">Add new</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -156,11 +134,8 @@
 <script>
     $(document).ready(function () {
         $('#add').click(function () {
-            $('.modal.add').modal('show');
+            $('.modal-add-book').modal('show');
         });
-        $('#edit').click(function () {
-            $('.modal.edit').modal('show');
-        })
     });
 
 </script>
