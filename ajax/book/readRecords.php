@@ -1,5 +1,5 @@
 <?php
-require "../../../../db_connection.php";
+require "../../db_connection.php";
 $data = '
          <table style="width: 1000px">
             <tr style="background: #eae6e6">
@@ -57,7 +57,7 @@ $data .= "</table>
                     });
                 });
                  function readRecordBook() {
-                    $.get('style/js/ajax/book/readRecords.php', {},function (data,status) {
+                    $.get('ajax/book/readRecords.php', {},function (data,status) {
                         $('.records-content').html(data);
                     });
                  };
@@ -68,7 +68,7 @@ $data .= "</table>
                  function deleteRecordBook(id) {
                     var conf = confirm('Do you want delete?');
                     if (conf === true) {
-                        $.post('style/js/ajax/book/deleteRecord.php',
+                        $.post('ajax/book/deleteRecord.php',
                             {
                                 id: id
                             }, function (data, status) {
@@ -82,7 +82,7 @@ $data .= "</table>
                     var id_category = $('#edit-id-category').val();
                     var id_author = $('#edit-id-author').val();
                     var published_year = $('#edit-published-year').val();                 
-                    $.post('style/js/ajax/book/editRecord.php',
+                    $.post('ajax/book/editRecord.php',
                         {
                             id: id,                         
                             name:name,

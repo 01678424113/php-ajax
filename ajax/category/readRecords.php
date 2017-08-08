@@ -1,5 +1,5 @@
 <?php
-    require "../../../../db_connection.php";
+    require "../../db_connection.php";
     $data ='
         <table style="width: 1000px">
             <tr style="background: #eae6e6">
@@ -39,7 +39,7 @@
         ';
     }
     $data .="</table>
-            <script>
+             <script>
                 $(document).ready(function () {
                     $('.edit').click(function () {   
                         var id = $(this).val();  
@@ -55,14 +55,14 @@
                         deleteRecordCategory(id);
                     });
                     function readRecordCategory() {
-                        $.get('style/js/ajax/category/readRecords.php', {}, function (data, status) {
+                        $.get('ajax/category/readRecords.php', {}, function (data, status) {
                             $('.records-content').html(data);
                         })
                     };
                     function deleteRecordCategory(id) {                   
                         var conf = confirm('Do you want delete?');
                         if(conf === true){
-                           $.post('style/js/ajax/category/deleteRecord.php',
+                           $.post('ajax/category/deleteRecord.php',
                                {
                                    id:id
                                },function (data,status) {
@@ -73,7 +73,7 @@
                     };
                     function editRecordCategory(id) {
                         var name = $('#edit-name').val();
-                        $.post('style/js/ajax/category/editRecord.php',
+                        $.post('ajax/category/editRecord.php',
                             {
                                 id: id,
                                 name:name

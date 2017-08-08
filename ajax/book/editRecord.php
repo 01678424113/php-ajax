@@ -13,7 +13,7 @@ if (
         isset($_POST['id_author']) &&
         isset($_POST['published_year']))
     {
-        require "../../../../db_connection.php";
+        require "../../db_connection.php";
         $id = $_POST['id'];
         $name = $_POST['name'];
         $id_category = $_POST['id_category'];

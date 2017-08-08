@@ -5,7 +5,7 @@ $(document).ready(function () {
         addRecordAuthor();
     });
     function readRecordAuthor() {
-        $.get("style/js/ajax/author/readRecords.php", {},function (data,status) {
+        $.get("ajax/author/readRecords.php", {},function (data,status) {
             $('.records-content').html(data);
         });
     }
@@ -15,7 +15,7 @@ $(document).ready(function () {
         var phone = $('#phone').val();
         var birthday = $('#birthday').val();
         var address = $('#address').val();
-        $.post("style/js/ajax/author/addRecord.php",
+        $.post("ajax/author/addRecord.php",
             {
                 full_name:full_name,
                 email:email,

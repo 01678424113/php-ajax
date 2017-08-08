@@ -5,7 +5,7 @@ $(document).ready(function () {
         addRecordBook();
     });
     function readRecordBook() {
-        $.get("style/js/ajax/book/readRecords.php", {},function (data,status) {
+        $.get("ajax/book/readRecords.php", {},function (data,status) {
             $('.records-content').html(data);
         });
     }
@@ -14,7 +14,7 @@ $(document).ready(function () {
         var id_category = $('#id-category').val();
         var id_author = $('#id-author').val();
         var published_year = $('#published-year').val();
-        $.post("style/js/ajax/book/addRecord.php",
+        $.post("ajax/book/addRecord.php",
             {
                 name:name,
                 id_category:id_category,

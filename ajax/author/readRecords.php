@@ -1,5 +1,5 @@
 <?php
-require "../../../../db_connection.php";
+require "../../db_connection.php";
 $data = '
          <table style="width: 1000px">
             <tr style="background: #eae6e6">
@@ -60,7 +60,7 @@ $data .= "</table>
                     });
                 });
                  function readRecordAuthor() {
-                    $.get('style/js/ajax/author/readRecords.php', {},function (data,status) {
+                    $.get('ajax/author/readRecords.php', {},function (data,status) {
                         $('.records-content').html(data);
                     });
                  };
@@ -71,7 +71,7 @@ $data .= "</table>
                  function deleteRecordAuthor(id) {
                     var conf = confirm('Do you want delete?');
                     if (conf === true) {
-                        $.post('style/js/ajax/author/deleteRecord.php',
+                        $.post('ajax/author/deleteRecord.php',
                             {
                                 id: id
                             }, function (data, status) {
@@ -79,14 +79,14 @@ $data .= "</table>
                             }
                         );
                     }
-                }
+                 }
                  function editRecordAuthor(id) {
                     var full_name = $('#edit-full-name').val();
                     var email = $('#edit-email').val();
                     var phone = $('#edit-phone').val();
                     var birthday = $('#edit-birthday').val();
                     var address = $('#edit-address').val();
-                    $.post('style/js/ajax/author/editRecord.php',
+                    $.post('ajax/author/editRecord.php',
                         {
                             id: id,
                             full_name:full_name,
